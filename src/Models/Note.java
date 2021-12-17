@@ -1,4 +1,5 @@
 package Models;
+import java.util.ArrayList;
 
 public class Note {
     public Integer id;
@@ -10,6 +11,14 @@ public class Note {
         String[] contentAndActive = content.split(";");
         this.description = contentAndActive[0];
         active = ( contentAndActive[1].equals("false")) ? false : true;
+    }
+
+    public static void listNotes(ArrayList notes, boolean active){
+        for (int i = 0; i < notes.size(); i++) {
+            if(notes.get(i).active == true){
+                System.out.println(notes.get(i));
+            }    
+        }
     }
 
     @Override

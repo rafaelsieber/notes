@@ -1,47 +1,33 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-
 import Models.Note;
+import Service.NoteService;
 
 public class Notes {
     public static void main(String[] args) throws FileNotFoundException, IOException{
 
+        ArrayList<Note> notes = NoteService.getNotes();
+
         if(args.length > 0){
 
             if(args[0].equals("-a")){
-                FileWriter fileWriter = new FileWriter("../res/notes",true);
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                bufferedWriter.newLine();  
-                bufferedWriter.append(args[1] + ";true");
-                bufferedWriter.close();
+                NoteService.addNote(args[1]);
             }
-        }
-        
-        ArrayList<Note> notes = new ArrayList<Note>();
-        FileReader fileReader = new FileReader("../res/notes");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-    
-        int idCount = 0;
-        while (bufferedReader.ready()){
-            notes.add(new Note(idCount,bufferedReader.readLine())); 
-            idCount++;
-        }
-        bufferedReader.close();
-    
-        for (int i = 0; i < notes.size(); i++) {
-            if(notes.get(i).active == true){
-                System.out.println(notes.get(i));
-            }    
-        }
 
+            if(args[0].equals("-h")){
+                System.out.println((char)27 + "[32m" + "How to Use" + (char)27 + "[39m");
+                System.out.println("Use -a \"New note\" to add");
+                System.out.println("Use -d id number to delete");
+                System.out.println("Use -t to show notes in the trash");
+                System.out.println("Use -r id number to remove it from the trash");
+            }
 
-        System.out.println("Use -a \"New note\" to add or -d [id] to remove");
-        
+            if(args[0].equals("-t")){
+                Note.listNotes(notes, false);
+            }
 
+            
+        } else {
+            Note.listNotes(notes, true);
+        }
     }
 }
