@@ -28,6 +28,17 @@ public class Notes {
                 Note.listNotes(notes, false);
             }
 
+
+            if(args[0].equals("-d")){
+                System.out.println((char)27 + "[31m" + "Deleting note with id = " + args[1] + (char)27 + "[39m");
+                NoteService.removeNote(args[1],false);
+            }
+
+            if(args[0].equals("-r")){
+                System.out.println((char)27 + "[33m" + "removing note with id = " + args[1] + " from trash" + (char)27 + "[39m");
+                NoteService.removeNote(args[1],true);
+            }
+
     
         } else {
             System.out.println((char)27 + "[32m" + "Notes" + (char)27 + "[39m");
