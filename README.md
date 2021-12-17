@@ -5,7 +5,7 @@ Version 0.01
 This is an java terminal application for taking notes. It's that simple.
 
 ## How to install
-run ./compile.sh 
+run ./install.sh 
 
 ## How to run
 This is a list of functionalities that are working right now, more to be added on the future. 
