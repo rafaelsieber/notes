@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import Models.Note;
 import Service.NoteService;
@@ -22,11 +24,13 @@ public class Notes {
             }
 
             if(args[0].equals("-t")){
+                System.out.println((char)27 + "[31m" + "Notes on trash" + (char)27 + "[39m");
                 Note.listNotes(notes, false);
             }
 
-            
+    
         } else {
+            System.out.println((char)27 + "[32m" + "Notes" + (char)27 + "[39m");
             Note.listNotes(notes, true);
         }
     }

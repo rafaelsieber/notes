@@ -13,9 +13,9 @@ public class Note {
         active = ( contentAndActive[1].equals("false")) ? false : true;
     }
 
-    public static void listNotes(ArrayList notes, boolean active){
+    public static void listNotes(ArrayList<Note> notes, boolean active){
         for (int i = 0; i < notes.size(); i++) {
-            if(notes.get(i).active == true){
+            if(notes.get(i).active == active){
                 System.out.println(notes.get(i));
             }    
         }
