@@ -39,7 +39,6 @@ public class Notes {
                 NoteService.removeNote(args[1],true);
             }
 
-    
         } else {
             System.out.println((char)27 + "[32m" + "Notes" + (char)27 + "[39m");
             Note.listNotes(notes, true);

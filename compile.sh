@@ -1,10 +1,11 @@
+clear
 cd src
-echo "Criando arquivo com todos os arquivos .java"
+echo "Creating temporary file with all *.java files..."
 find -name "*.java" > sources.txt
-echo "Compilando todos os arquivos"
+echo "DONE"
+echo "Compiling code"
 javac @sources.txt -d ../bin -Xlint:unchecked
-echo "Removendo arquivos temporarios"
+echo "DONE"
+echo "Removing temporary files"
 rm sources.txt
-cd ..
-echo "Rodando o código"
-cd bin
+echo "DONE"
