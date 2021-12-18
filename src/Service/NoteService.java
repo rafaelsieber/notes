@@ -64,10 +64,7 @@ public class NoteService {
 
         tmpFile.renameTo(file);
 
-        reader.close();
+        reader.close(); 
         writer.close();
-
-
-
     }
 }
