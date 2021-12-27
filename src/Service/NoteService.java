@@ -33,8 +33,8 @@ public class NoteService {
     public static void addNote(String note) throws FileNotFoundException, IOException {
         FileWriter fileWriter = new FileWriter(file, true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.newLine();
         bufferedWriter.append(note + ";true");
+        bufferedWriter.newLine();
         bufferedWriter.close();
     }
 
@@ -64,10 +64,7 @@ public class NoteService {
 
         tmpFile.renameTo(file);
 
-        reader.close();
+        reader.close(); 
         writer.close();
-
-
-
     }
 }
